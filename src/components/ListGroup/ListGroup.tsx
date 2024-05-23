@@ -1,5 +1,20 @@
 import {useState} from "react";
 import styles from './ListGroup.module.css';
+import styled from "styled-components";
+
+const List = styled.ul`
+    list-style: none;
+    padding: 0;
+`
+
+interface ListItemProps {
+    active: boolean;
+}
+
+const ListItem = styled.li<ListItemProps>`
+    padding: 5px 0;
+    background: ${props => props.active ? 'blue' : 'none'};
+`
 
 // usage example code:
 /* ListGroup Component example from parent component:
@@ -25,6 +40,7 @@ interface ListGroupProps {
 function ListGroup({items, heading, onSelectItem}: ListGroupProps) {
     // initialized -1 to represent at the beginning, no item is selected.
     let [selectedIndex, setSelectedIndex] = useState(-1);
+    let [selectedIndexListWithStyledComponent, setSelectedIndexListWithStyledComponent] = useState(1);
     return (
         // because React component could only return one element,
         // so <h1> and <ul> has to be wrapped in <>, i.e., a Fragment element.
@@ -47,6 +63,21 @@ function ListGroup({items, heading, onSelectItem}: ListGroupProps) {
                     </li>
                 ))}
             </ul>
+            <h1>List using CSS in JS, i.e., "styled-components" library.</h1>
+            <List>
+                {items.map((item, index) => (
+                    <ListItem active={index === selectedIndexListWithStyledComponent}
+                              key={item}
+                        // onClick could provide an event: MouseEvent parameter, import {MouseEvent} from "react" in this case
+                              onClick={() => {
+                                  setSelectedIndexListWithStyledComponent(index);
+                                  onSelectItem(item);
+                              }}
+                    >
+                        {item}
+                    </ListItem>
+                ))}
+            </List>
         </>
     );
 }
