@@ -3,6 +3,7 @@
     padding-left: 0;
 }
 
+/* background overwritten by inline CSS */
 .container {
-    background: yellow;
+    background: red;
 }
