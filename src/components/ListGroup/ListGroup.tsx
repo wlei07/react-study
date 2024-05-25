@@ -1,6 +1,7 @@
 import {useState} from "react";
 import styles from './ListGroup.module.css';
 import styled from "styled-components";
+import {BsFillCalendarFill} from "react-icons/bs";
 
 // code example for styled-components, i.e., CSS in JS
 const List = styled.ul`
@@ -47,6 +48,7 @@ function ListGroup({items, heading, onSelectItem}: ListGroupProps) {
         // so <h1> and <ul> has to be wrapped in <>, i.e., a Fragment element.
         <>{/*} alternatively use <Fragment></Fragment> element */}
             <h1>{heading}</h1>
+            <BsFillCalendarFill color="red" size="40"/>
             {/* Note in JavaScript: true && 'Lei' returns 'Lei', however, false && 'Lei' returns false */}
             {items.length === 0 && <p>No item found</p>}
             <ul className={[styles.listGroup, styles.container].join(' ')} style={{backgroundColor: "yellow"}}>
