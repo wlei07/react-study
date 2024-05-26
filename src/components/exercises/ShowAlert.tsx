@@ -1,5 +1,5 @@
 import Alert from "../Alert.tsx";
-import Button from "./Button.tsx";
+import Button from "./Button/Button.tsx";
 import {useState} from "react";
 
 function ShowAlert() {
@@ -11,7 +11,7 @@ function ShowAlert() {
                 onClick={() => {
                     setAlertVisible(true);
                 }}
-                color='danger'// color is optional, default to primary
+                color='primary'// color is optional, default to primary
             >
                 My Button
             </Button>
