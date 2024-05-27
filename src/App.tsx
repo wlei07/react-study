@@ -1,8 +1,8 @@
 import './App.css';
-import ManageComponentStateDemo from "./components/ManageComponentStateDemo.tsx";
+import Form from "./components/Form.tsx";
 
 function App() {
-    return <ManageComponentStateDemo/>
+    return <Form/>
 }
 
 export default App;
