@@ -1,8 +1,8 @@
 import './App.css';
-import Form from "./components/Form.tsx";
+import FormUsingStateHook from "./components/FormUsingStateHook.tsx";
 
 function App() {
-    return <Form/>
+    return <FormUsingStateHook/>
 }
 
 export default App;
