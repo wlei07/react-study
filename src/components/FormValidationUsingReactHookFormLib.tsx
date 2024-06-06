@@ -5,7 +5,7 @@ interface FormData {
     age: number;
 }
 
-export default function FormUsingReactHookFormLib() {
+export default function FormValidationUsingReactHookFormLib() {
     const {register, handleSubmit, formState: {errors}} = useForm<FormData>();
     const onSubmit = (data: FieldValues) => console.log(data);
 

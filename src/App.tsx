@@ -1,8 +1,8 @@
 import './App.css';
-import FormUsingReactHookFormLib from "./components/FormUsingReactHookFormLib.tsx";
+import ProductList from "./components/ProductList.tsx";
 
 function App() {
-    return <FormUsingReactHookFormLib/>
+    return <ProductList/>
 }
 
 export default App;
