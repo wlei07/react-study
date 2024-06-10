@@ -1,0 +1,5 @@
+/* to simulate clash with other vanilla CSS styles, in this case ListGroup.module.css */
+/* does not apply anymore because ListGroup.module.css has been reworked to be a CSS module */
+.list-group {
+    background: red;
+}
