@@ -51,6 +51,7 @@ function ListGroup({items, heading, onSelectItem}: ListGroupProps) {
             <BsFillCalendarFill color="red" size="40"/>
             {/* Note in JavaScript: true && 'Lei' returns 'Lei', however, false && 'Lei' returns false */}
             {items.length === 0 && <p>No item found</p>}
+            <h1>List using CSS Module.</h1>
             <ul className={[styles.listGroup, styles.container].join(' ')} style={{backgroundColor: "yellow"}}>
                 {items.map((item, index) => (
                     <li
