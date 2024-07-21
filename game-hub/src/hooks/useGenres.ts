@@ -1,38 +1,11 @@
-import {useEffect, useState} from "react";
-import axiosInstance from '../services/api-client';
-import {CanceledError} from "axios";
+import useData from "./useData.ts";
 
-interface Genre {
+export interface Genre {
     id: number;
     name: string;
-}
-
-interface FetchGenresResponse {
-    count: number;
-    results: Genre[];
+    image_background: string;
 }
 
 export default function useGenres() {
-    const [genres, setGenres] = useState<Genre[]>([]);
-    const [error, setError] = useState('');
-    const [isLoading, setLoading] = useState(false);
-    useEffect(() => {
-        const controller = new AbortController();
-        setLoading(true);
-        axiosInstance.get<FetchGenresResponse>('/genres', {signal: controller.signal})
-            .then(response => {
-                setGenres(response.data.results);
-                //putting it to finally does not work, thus duplicate in then() and catch() methods.
-                setLoading(false);
-            })
-            .catch(error => {
-                if (error instanceof CanceledError) {
-                    return;
-                }
-                setError(error.message);
-                setLoading(false);
-            });
-        return () => controller.abort();
-    }, []);
-    return {genres, error, isLoading};
+    return useData<Genre>('/genres');
 }
