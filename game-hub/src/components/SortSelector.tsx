@@ -23,7 +23,6 @@ export default function SortSelector({onSelectSortOrder, sortOrder}: Props) {
             </MenuButton>
             <MenuList>
                 {sortOrders.map(order => {
-                    console.log(order);
                     return (
                         <MenuItem onClick={() => onSelectSortOrder(order.value)} key={order.value} value={order.value}>
                             {order.label}
